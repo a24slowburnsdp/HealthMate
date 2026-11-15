@@ -12,6 +12,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.healthmate.ui.theme.HealthMateTheme
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.healthmate.data.local.HealthMateDatabase
+import com.example.healthmate.data.repository.HealthRecordRepository
+import com.example.healthmate.ui.navigation.HealthMateNavHost
+import com.example.healthmate.ui.viewmodel.HealthViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,12 +24,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             HealthMateTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                val database = HealthMateDatabase.getDatabase(applicationContext)
+                val repository = HealthRecordRepository(database.healthRecordDao())
+                val healthViewModel: HealthViewModel = viewModel(
+                    factory = HealthViewModel.provideFactory(repository)
+                )
+                HealthMateNavHost(viewModel = healthViewModel)
             }
         }
     }
