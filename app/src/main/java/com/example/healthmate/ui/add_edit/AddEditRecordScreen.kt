@@ -38,6 +38,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
@@ -198,7 +199,10 @@ fun AddEditRecordScreen(
             Button(
                 onClick = onSaveClick,
                 enabled = !formState.isSaving,
-                colors = ButtonDefaults.buttonColors(containerColor = HealthColors.WellnessTeal),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = HealthColors.WellnessTeal,
+                    contentColor = Color.White
+                ),
                 modifier = Modifier.weight(1f)
             ) {
                 Icon(Icons.Rounded.Save, contentDescription = null)

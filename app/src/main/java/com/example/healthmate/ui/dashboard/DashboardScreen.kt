@@ -166,7 +166,10 @@ fun DashboardScreen(
         ) {
             Button(
                 onClick = onAddRecordClick,
-                colors = ButtonDefaults.buttonColors(containerColor = HealthColors.WellnessTeal),
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = HealthColors.WellnessTeal,
+                    contentColor = Color.White
+                ),
                 modifier = Modifier.weight(1f)
             ) {
                 Icon(Icons.Rounded.Add, contentDescription = null, modifier = Modifier.size(18.dp))
