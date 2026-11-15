@@ -83,7 +83,7 @@ fun AddEditRecordScreen(
             value = formState.date,
             onValueChange = onDateChange,
             label = { Text("Date (YYYY-MM-DD)") },
-            placeholder = { Text("e.g. 2026-08-18") },
+            placeholder = { Text("e.g. 2026-11-15") },
             singleLine = true,
             isError = formState.dateError != null,
             supportingText = {

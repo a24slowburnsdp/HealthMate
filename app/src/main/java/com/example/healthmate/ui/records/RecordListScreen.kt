@@ -79,7 +79,7 @@ fun RecordListScreen(
         OutlinedTextField(
             value = searchQuery,
             onValueChange = onSearchQueryChange,
-            label = { Text("Search by date (e.g. 2026-08 or 18)") },
+            label = { Text("Search by date (e.g. 2026-11 or 15)") },
             singleLine = true,
             leadingIcon = {
                 Icon(Icons.Rounded.Search, contentDescription = "Search")
